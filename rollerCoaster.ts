@@ -1,4 +1,3 @@
-const fs = require("fs");
 const lineReader = require("line-reader");
 
 var lines: string = "";
@@ -34,6 +33,7 @@ lineReader.eachLine(process.argv[2].toString(), function (line, last) {
           groupIndex = 0;
           j = 0;
         }
+        // normal schema when group is less than max space
         if (groups[j] + peopleInWagon <= L) {
           peopleInWagon += groups[j];
           groupIndex += 1;
@@ -42,8 +42,6 @@ lineReader.eachLine(process.argv[2].toString(), function (line, last) {
           break;
         }
       }
-      //console.log(peopleInWagon)
-
       if (groupIndex > L) {
         groupIndex = 0;
       }
